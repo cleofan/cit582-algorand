@@ -41,9 +41,9 @@ def send_tokens( receiver_pk, tx_amount ):
 
     #Send the signed transaction
     try:
-        tx = algodclient.send_transaction(signed_tx)
+        tx = acl.send_transaction(signed_tx)
         print('Transaction sent with ID', signed_tx.transaction.get_txid())
-        wait_for_confirmation(algodclient, txid=signed_tx.transaction.get_txid())
+        wait_for_confirmation(acl, txid=signed_tx.transaction.get_txid())
     except Exception as e:
         print(e)
     
